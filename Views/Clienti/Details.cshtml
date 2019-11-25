@@ -1,0 +1,94 @@
+﻿@model Proiect5_MTP.Models.Client
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+        <dt>
+            <strong>An</strong>
+        </dt>
+        <dd>
+            @ViewBag.D @ViewBag.M @ViewBag.An
+        </dd>
+        <dt>
+            <strong>Varsta</strong>
+        </dt>
+        <dd>
+            @ViewBag.Varsta
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <strong>Data</strong>
+        </th>
+        <th>
+            <strong>Autor</strong>
+        </th>
+        <th>
+            <strong>Titlu</strong>
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model.Imprumuturi)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataImprumut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carte.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carte.Titlu)
+        </td>
+
+    </tr>
+    }
+</table>
